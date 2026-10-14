@@ -62,6 +62,15 @@ function draw(){
     const end=Math.min(sy+2,sh),v=sy/sh,w=dw*widthAt(v);
     const y0=topY+dh*position(v),y1=topY+dh*position(end/sh);
     ctx.drawImage(img,sourceX,sy,crop,end-sy,cx-w/2,y0,w,Math.max(y1-y0,.6));
+    // Fade the source photo's pale background at the sides of every warped row.
+    // Its rectangular edge should never read as part of the mannequin silhouette.
+    const edge=w*.31,half=w/2,stripH=Math.max(y1-y0,.6);
+    let fade=ctx.createLinearGradient(cx-half,y0,cx-half+edge,y0);
+    fade.addColorStop(0,'#fafbf9');fade.addColorStop(1,'#fafbf900');
+    ctx.fillStyle=fade;ctx.fillRect(cx-half,y0,edge,stripH);
+    fade=ctx.createLinearGradient(cx+half-edge,y0,cx+half,y0);
+    fade.addColorStop(0,'#fafbf900');fade.addColorStop(1,'#fafbf9');
+    ctx.fillStyle=fade;ctx.fillRect(cx+half-edge,y0,edge,stripH);
   }
 }
 function renderMeasurementEditor(){
