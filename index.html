@@ -5,6 +5,7 @@
 <title>FORM — Fitting Room Prototype</title>
 <style>
 :root{--ink:#26312b;--muted:#7b8980;--line:#e3e9e2;--green:#617d62;--bg:#f5f7f3}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}button,input{font:inherit}button{cursor:pointer}.app{max-width:1360px;margin:auto;padding:25px 35px}nav{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:19px}.logo{font-weight:800;font-size:24px;letter-spacing:.15em}.logo span{color:#85a184}nav small{font-size:11px;color:var(--muted);letter-spacing:.16em}.screen{display:none}.screen.active{display:block}.setup{display:grid;grid-template-columns:.9fr 1.1fr;gap:7%;padding:72px 1%}.kicker{font-size:11px;font-weight:700;letter-spacing:.17em;color:var(--green)}h1{font:400 clamp(48px,5vw,76px)/1.06 Georgia,serif;letter-spacing:-.05em;margin:20px 0}.intro{padding-top:42px}.intro p{max-width:420px;color:var(--muted);line-height:1.7}.intro .callout{margin-top:55px;max-width:405px;background:#eaf0e8;padding:20px;border-radius:15px;color:#627862;font-size:13px;line-height:1.6}.card{background:#fff;border:1px solid var(--line);border-radius:19px;padding:30px;box-shadow:0 18px 55px #31402f0a}h2{font:400 26px Georgia,serif;margin:0 0 7px}.sub{color:var(--muted);font-size:13px;line-height:1.6;margin:0 0 24px}.label{display:block;font-size:11px;font-weight:700;letter-spacing:.15em;margin:24px 0 11px}.types{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.type{border:1px solid var(--line);background:#fbfcfa;text-align:left;border-radius:11px;padding:12px;color:#67776b;font-size:12px}.type b{display:block;font-size:20px;font-weight:400;margin-bottom:6px}.type.active{background:#eef5ed;border-color:#779579;color:#416545}.fields{display:grid;grid-template-columns:repeat(2,1fr);gap:13px 15px}.field label{display:block;font-size:12px;color:#77877a;margin-bottom:6px}.input{display:flex;align-items:center;border:1px solid var(--line);border-radius:9px;padding:0 10px}.input:focus-within{border-color:var(--green)}.input input{border:0;outline:0;background:none;width:100%;min-width:0;height:40px}.input small{color:#a1aca2}.primary{border:0;background:var(--ink);color:#fff;border-radius:10px;padding:14px 18px;font-weight:700}.full{width:100%;margin-top:27px}.studio{padding-top:28px}.studio-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:19px}.studio-head h1{font-size:42px;margin:8px 0 0}.back{background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 15px;color:#526854}.layout{display:grid;grid-template-columns:245px minmax(370px,1fr) 250px;gap:15px}.side{background:#fff;border:1px solid var(--line);border-radius:17px;padding:21px}.side h2{font-size:23px}.side p{font-size:12px;color:var(--muted);line-height:1.6}.row{display:flex;justify-content:space-between;border-bottom:1px solid #edf1ec;padding:10px 0;font-size:12px}.row span{color:var(--muted)}.row b{font-weight:600}.note{background:#f0f5ee;border-radius:11px;padding:13px;margin-top:22px;color:#607963;font-size:12px;line-height:1.6}.viewer{height:660px;position:relative;overflow:hidden;border-radius:17px;border:1px solid var(--line);background:#fafbf9}canvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}canvas:active{cursor:grabbing}.tag{position:absolute;top:17px;left:18px;background:#ffffffea;color:#617865;padding:9px 12px;border-radius:30px;font-size:11px;letter-spacing:.08em}.controls{position:absolute;bottom:17px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:13px}.arrow{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#fff;color:#526755;font-size:18px}.angle-label{background:#ffffffed;border-radius:30px;padding:10px 13px;color:#677c69;font-size:11px;letter-spacing:.08em;min-width:92px;text-align:center}.angles{display:grid;gap:8px}.angle{width:100%;border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px;text-align:left;color:#607163;font-size:12px}.angle.active{border-color:#7e9a7b;background:#f0f6ee;color:#3e6342}.notice{font-size:11px;color:#9ba79d;line-height:1.5;margin-top:17px}@media(max-width:1000px){.layout{grid-template-columns:1fr 1fr}.viewer{grid-column:1/-1;grid-row:1}}@media(max-width:700px){.app{padding:16px}.setup{display:block;padding:28px 0}.intro{padding:0 0 20px}.intro h1{font-size:47px}.intro .callout{display:none}.card{padding:22px}.layout{display:block}.side,.viewer{margin-bottom:14px}.viewer{height:540px}.studio-head h1{font-size:33px}}
+.measure-edit{width:52px;border:1px solid var(--line);border-radius:6px;padding:5px;text-align:right;color:var(--ink);background:#fbfcfa}.measure-edit:focus{outline:2px solid #9fb49b}.measure-unit{white-space:nowrap;color:var(--muted);font-size:11px}.row{align-items:center;gap:6px;padding:7px 0}.row span{flex:1}
 </style>
 </head>
 <body>
@@ -27,7 +28,55 @@ function setView(n){view=(n+3)%3;renderAngles();draw()}
 function renderAngles(){document.getElementById('angle-label').textContent=names[view];document.getElementById('angles').innerHTML=names.map((name,i)=>`<button class="angle ${i===view?'active':''}" data-view="${i}">${['01','02','03'][i]} &nbsp; ${name}</button>`).join('');document.querySelectorAll('.angle').forEach(b=>b.onclick=()=>setView(+b.dataset.view))}
 document.getElementById('prev').onclick=()=>setView(view-1);document.getElementById('next').onclick=()=>setView(view+1);
 const canvas=document.getElementById('canvas'),ctx=canvas.getContext('2d');function resize(){const r=canvas.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(r.width*d);canvas.height=Math.round(r.height*d);ctx.setTransform(d,0,0,d,0,0)}
-function draw(){const r=canvas.getBoundingClientRect(),img=loaded[type];ctx.clearRect(0,0,r.width,r.height);ctx.fillStyle='#fafbf9';ctx.fillRect(0,0,r.width,r.height);if(!img.complete||!img.naturalWidth){img.onload=draw;return}const sw=img.naturalWidth/3,sh=img.naturalHeight;const scale=Math.min((r.width*.91)/sw,(r.height*.97)/sh);const dw=sw*scale,dh=sh*scale;ctx.drawImage(img,view*sw,0,sw,sh,(r.width-dw)/2,(r.height-dh)/2,dw,dh)}
+function draw(){
+  const r=canvas.getBoundingClientRect(),img=loaded[type];
+  ctx.clearRect(0,0,r.width,r.height);ctx.fillStyle='#fafbf9';ctx.fillRect(0,0,r.width,r.height);
+  if(!img.complete||!img.naturalWidth){img.onload=draw;return}
+  const base=presets[type],clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+  const ratio=(key,a=.75,b=1.35)=>clamp(data[key]/base[key],a,b);
+  const mass=clamp(1+(data.weight/base.weight-1)*.18,.90,1.13);
+  const anchors=[
+    [0,ratio('head',.85,1.17)],[.11,ratio('head',.85,1.17)],
+    [.18,ratio('shoulder')],[.29,ratio('chest')*mass],
+    [.43,ratio('waist')*mass],[.56,ratio('hip')*mass],
+    [.72,mass],[.86,mass],[1,1]
+  ];
+  const widthAt=y=>{
+    let i=0;while(i<anchors.length-2&&y>anchors[i+1][0])i++;
+    const [y0,w0]=anchors[i],[y1,w1]=anchors[i+1];
+    const t=clamp((y-y0)/(y1-y0),0,1),smooth=t*t*(3-2*t);
+    return w0+(w1-w0)*smooth;
+  };
+  const legDelta=ratio('leg',.82,1.18)-1;
+  const top=1-legDelta*.38,bottom=1+legDelta*.42;
+  const total=.54*top+.46*bottom;
+  const position=y=>y<=.54?y*top/total:(.54*top+(y-.54)*bottom)/total;
+  const sw=img.naturalWidth/3,sh=img.naturalHeight;
+  const baseScale=Math.min((r.width*.86)/sw,(r.height*.84)/sh);
+  const dw=sw*baseScale,dh=sh*baseScale*ratio('height',.84,1.18);
+  const cx=r.width/2,topY=(r.height-dh)/2;
+  for(let sy=0;sy<sh;sy+=2){
+    const end=Math.min(sy+2,sh),v=sy/sh,w=dw*widthAt(v);
+    const y0=topY+dh*position(v),y1=topY+dh*position(end/sh);
+    ctx.drawImage(img,view*sw,sy,sw,end-sy,cx-w/2,y0,w,Math.max(y1-y0,.6));
+  }
+}
+function renderMeasurementEditor(){
+  document.getElementById('summary').innerHTML=specs.map(([key,label,unit])=>
+    `<label class="row"><span>${label}</span><input class="measure-edit" data-key="${key}" aria-label="${label}" type="number" min="1" value="${data[key]}"><small class="measure-unit">${unit}</small></label>`
+  ).join('');
+  document.querySelectorAll('.measure-edit').forEach(input=>input.addEventListener('input',()=>{
+    const value=Number(input.value);if(!Number.isFinite(value)||value<=0)return;
+    data[input.dataset.key]=value;document.getElementById(input.dataset.key).value=value;draw();
+  }));
+}
+const initialContinue=document.getElementById('continue').onclick;
+document.getElementById('continue').onclick=()=>{
+  initialContinue();
+  if(document.getElementById('studio').classList.contains('active'))renderMeasurementEditor();
+};
+document.querySelector('.layout .side:last-child .note').textContent='Visual prototype: measurements now reshape the displayed mannequin image. This is an illustrative 2D adjustment across three views, not a precise 3D body scan or garment fit prediction.';
+document.querySelector('.layout .side:first-child .note').textContent='Change any measurement here to see the mannequin update immediately. Drag left or right to switch views.';
 canvas.addEventListener('pointerdown',e=>{startX=e.clientX;canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointerup',e=>{if(startX!==null){const delta=e.clientX-startX;if(Math.abs(delta)>35)setView(view+(delta<0?1:-1));startX=null}});window.addEventListener('resize',()=>{if(document.getElementById('studio').classList.contains('active')){resize();draw()}});renderFields();
 </script>
 </body></html>
