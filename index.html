@@ -6,13 +6,14 @@
 <style>
 :root{--ink:#26312b;--muted:#7b8980;--line:#e3e9e2;--green:#617d62;--bg:#f5f7f3}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}button,input{font:inherit}button{cursor:pointer}.app{max-width:1360px;margin:auto;padding:25px 35px}nav{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:19px}.logo{font-weight:800;font-size:24px;letter-spacing:.15em}.logo span{color:#85a184}nav small{font-size:11px;color:var(--muted);letter-spacing:.16em}.screen{display:none}.screen.active{display:block}.setup{display:grid;grid-template-columns:.9fr 1.1fr;gap:7%;padding:72px 1%}.kicker{font-size:11px;font-weight:700;letter-spacing:.17em;color:var(--green)}h1{font:400 clamp(48px,5vw,76px)/1.06 Georgia,serif;letter-spacing:-.05em;margin:20px 0}.intro{padding-top:42px}.intro p{max-width:420px;color:var(--muted);line-height:1.7}.intro .callout{margin-top:55px;max-width:405px;background:#eaf0e8;padding:20px;border-radius:15px;color:#627862;font-size:13px;line-height:1.6}.card{background:#fff;border:1px solid var(--line);border-radius:19px;padding:30px;box-shadow:0 18px 55px #31402f0a}h2{font:400 26px Georgia,serif;margin:0 0 7px}.sub{color:var(--muted);font-size:13px;line-height:1.6;margin:0 0 24px}.label{display:block;font-size:11px;font-weight:700;letter-spacing:.15em;margin:24px 0 11px}.types{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.type{border:1px solid var(--line);background:#fbfcfa;text-align:left;border-radius:11px;padding:12px;color:#67776b;font-size:12px}.type b{display:block;font-size:20px;font-weight:400;margin-bottom:6px}.type.active{background:#eef5ed;border-color:#779579;color:#416545}.fields{display:grid;grid-template-columns:repeat(2,1fr);gap:13px 15px}.field label{display:block;font-size:12px;color:#77877a;margin-bottom:6px}.input{display:flex;align-items:center;border:1px solid var(--line);border-radius:9px;padding:0 10px}.input:focus-within{border-color:var(--green)}.input input{border:0;outline:0;background:none;width:100%;min-width:0;height:40px}.input small{color:#a1aca2}.primary{border:0;background:var(--ink);color:#fff;border-radius:10px;padding:14px 18px;font-weight:700}.full{width:100%;margin-top:27px}.studio{padding-top:28px}.studio-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:19px}.studio-head h1{font-size:42px;margin:8px 0 0}.back{background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 15px;color:#526854}.layout{display:grid;grid-template-columns:245px minmax(370px,1fr) 250px;gap:15px}.side{background:#fff;border:1px solid var(--line);border-radius:17px;padding:21px}.side h2{font-size:23px}.side p{font-size:12px;color:var(--muted);line-height:1.6}.row{display:flex;justify-content:space-between;border-bottom:1px solid #edf1ec;padding:10px 0;font-size:12px}.row span{color:var(--muted)}.row b{font-weight:600}.note{background:#f0f5ee;border-radius:11px;padding:13px;margin-top:22px;color:#607963;font-size:12px;line-height:1.6}.viewer{height:660px;position:relative;overflow:hidden;border-radius:17px;border:1px solid var(--line);background:#fafbf9}canvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}canvas:active{cursor:grabbing}.tag{position:absolute;top:17px;left:18px;background:#ffffffea;color:#617865;padding:9px 12px;border-radius:30px;font-size:11px;letter-spacing:.08em}.controls{position:absolute;bottom:17px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:13px}.arrow{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#fff;color:#526755;font-size:18px}.angle-label{background:#ffffffed;border-radius:30px;padding:10px 13px;color:#677c69;font-size:11px;letter-spacing:.08em;min-width:92px;text-align:center}.angles{display:grid;gap:8px}.angle{width:100%;border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px;text-align:left;color:#607163;font-size:12px}.angle.active{border-color:#7e9a7b;background:#f0f6ee;color:#3e6342}.notice{font-size:11px;color:#9ba79d;line-height:1.5;margin-top:17px}@media(max-width:1000px){.layout{grid-template-columns:1fr 1fr}.viewer{grid-column:1/-1;grid-row:1}}@media(max-width:700px){.app{padding:16px}.setup{display:block;padding:28px 0}.intro{padding:0 0 20px}.intro h1{font-size:47px}.intro .callout{display:none}.card{padding:22px}.layout{display:block}.side,.viewer{margin-bottom:14px}.viewer{height:540px}.studio-head h1{font-size:33px}}
 .measure-edit{width:52px;border:1px solid var(--line);border-radius:6px;padding:5px;text-align:right;color:var(--ink);background:#fbfcfa}.measure-edit:focus{outline:2px solid #9fb49b}.measure-unit{white-space:nowrap;color:var(--muted);font-size:11px}.row{align-items:center;gap:6px;padding:7px 0}.row span{flex:1}
+.garment-panel{margin-top:24px;border-top:1px solid var(--line);padding-top:20px}.garment-panel h2{margin-bottom:7px}.garment-panel label{display:block;color:#687a6b;font-size:11px;margin:13px 0 5px}.garment-panel input,.garment-panel select{width:100%;height:37px;border:1px solid var(--line);background:#fbfcfa;border-radius:8px;padding:7px;color:var(--ink)}.garment-panel input[type=file]{height:auto;font-size:11px}.garment-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.garment-panel .hint{font-size:11px;color:var(--muted);line-height:1.5;margin:8px 0}.fit-result{padding:11px;background:#f0f5ee;border-radius:9px;color:#526e54;font-size:12px;line-height:1.5;margin-top:14px}
 </style>
 </head>
 <body>
 <div class="app">
 <nav><div class="logo">F<span>O</span>RM</div><small>VIRTUAL FITTING ROOM</small></nav>
 <main id="setup" class="screen active"><div class="setup"><div class="intro"><div class="kicker">01 / BODY PROFILE</div><h1>See the fit<br>on your shape.</h1><p>Choose a mannequin type and enter your measurements. Explore a realistic white retail mannequin from multiple angles.</p><div class="callout">A clear visual first: a store-style mannequin with natural human proportions, matching the approved reference.</div></div><div class="card"><h2>Create your profile</h2><p class="sub">Select a starting model, then add your measurements.</p><span class="label">MODEL TYPE</span><div class="types"><button class="type" data-type="male"><b>♂</b>Male</button><button class="type active" data-type="female"><b>♀</b>Female</button><button class="type" data-type="neutral"><b>◇</b>Gender-neutral</button></div><span class="label">BODY MEASUREMENTS</span><div class="fields" id="fields"></div><button class="primary full" id="continue">Enter fitting room →</button></div></div></main>
-<main id="studio" class="screen studio"><div class="studio-head"><div><div class="kicker">02 / YOUR MANNEQUIN</div><h1>Your fitting room.</h1></div><button class="back" id="back">← Edit profile</button></div><div class="layout"><aside class="side"><h2>Your profile</h2><p>Your entered measurements are shown below.</p><div id="summary"></div><div class="note">Drag the mannequin left or right to switch between the available views.</div></aside><div class="viewer"><div class="tag" id="tag">FEMALE MODEL</div><canvas id="canvas" aria-label="Mannequin view"></canvas><div class="controls"><button class="arrow" id="prev" aria-label="Previous view">‹</button><span class="angle-label" id="angle-label">FRONT</span><button class="arrow" id="next" aria-label="Next view">›</button></div></div><aside class="side"><h2>Explore the model</h2><p>Choose a view to inspect the mannequin's silhouette and proportions.</p><div class="angles" id="angles"></div><div class="note">Prototype interaction: these are three rendered views, not a continuous 3D model. Measurements are recorded but do not reshape the rendered image.</div><div class="notice">Garment try-on and verified size prediction are the next prototype features.</div></aside></div></main>
+<main id="studio" class="screen studio"><div class="studio-head"><div><div class="kicker">02 / YOUR FITTING ROOM</div><h1>Your fitting room.</h1></div><button class="back" id="back">← Edit profile</button></div><div class="layout"><aside class="side"><h2>Your profile</h2><p>Adjust your measurements to update the mannequin.</p><div id="summary"></div><div class="note">Change any measurement here to see the mannequin update immediately. Drag left or right to switch views.</div></aside><div class="viewer"><div class="tag" id="tag">FEMALE MODEL</div><canvas id="canvas" aria-label="Mannequin view"></canvas><div class="controls"><button class="arrow" id="prev" aria-label="Previous view">‹</button><span class="angle-label" id="angle-label">FRONT</span><button class="arrow" id="next" aria-label="Next view">›</button></div></div><aside class="side"><h2>Explore the model</h2><p>Choose a view to inspect the mannequin's silhouette and proportions.</p><div class="angles" id="angles"></div><div class="garment-panel"><h2>Try a brand's item</h2><p class="hint">Save a product image from an online shop and upload it here. A transparent PNG works best.</p><label for="brand">Brand</label><input id="brand" placeholder="e.g. your favorite brand"><label for="product">Product name</label><input id="product" placeholder="e.g. linen shirt"><div class="garment-grid"><div><label for="category">Type</label><select id="category"><option value="top">Top</option><option value="jacket">Jacket</option><option value="dress">Dress</option></select></div><div><label for="garment-size">Brand size</label><select id="garment-size"><option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option></select></div></div><label for="product-image">Product image</label><input id="product-image" type="file" accept="image/*"><p class="hint">The colored top is a demo. Your image replaces it and stays on this device.</p><label>Brand size chart · chest range (cm)</label><div class="garment-grid"><input id="chest-min" type="number" min="1" placeholder="Min" aria-label="Minimum chest circumference"><input id="chest-max" type="number" min="1" placeholder="Max" aria-label="Maximum chest circumference"></div><div id="fit-result" class="fit-result">Add the brand's chest range to see a basic size comparison.</div></div><div class="notice">Visual try-on is illustrative. The chest comparison uses only the size range you enter; it cannot verify garment fit.</div></aside></div></main>
 </div>
 <script>
 const images={female:'female.jpg',male:'male.jpg',neutral:'neutral.jpg'};
@@ -72,14 +73,60 @@ function draw(){
     fade.addColorStop(0,'#fafbf900');fade.addColorStop(1,'#fafbf9');
     ctx.fillStyle=fade;ctx.fillRect(cx+half-edge,y0,edge,stripH);
   }
+  drawGarment(cx,topY,dh,dw);
 }
+let productImage=null,productImageUrl=null;
+function drawGarment(cx,topY,dh,dw){
+  const category=document.getElementById('category').value;
+  const turn=view===2?.54:view===1?.83:1;
+  const shoulder=dw*.64*Math.min(data.shoulder/presets[type].shoulder,1.25)*turn;
+  const torso=dw*.49*Math.min(data.chest/presets[type].chest,1.25)*turn;
+  const x=cx+(view===2?dw*.035:0),y=topY+dh*.175;
+  const bottom=topY+dh*(category==='dress'?.76:category==='jacket'?.55:.50);
+  ctx.save();ctx.globalAlpha=.91;
+  if(productImage){
+    // A product photograph is used as a visual overlay; images with transparent
+    // backgrounds give the clearest result against the white mannequin.
+    const boxW=shoulder*1.25,boxH=bottom-y;
+    const scale=Math.min(boxW/productImage.naturalWidth,boxH/productImage.naturalHeight);
+    const w=productImage.naturalWidth*scale,h=productImage.naturalHeight*scale;
+    ctx.drawImage(productImage,x-w/2,y+(boxH-h)/2,w,h);
+  }else{
+    ctx.beginPath();ctx.moveTo(x-shoulder*.35,y);ctx.lineTo(x-shoulder*.53,y+dh*.035);
+    ctx.lineTo(x-shoulder*.77,y+dh*.12);ctx.lineTo(x-shoulder*.48,y+dh*.145);
+    ctx.lineTo(x-torso*.48,y+dh*.12);ctx.lineTo(x-torso*.43,bottom);
+    ctx.lineTo(x+torso*.43,bottom);ctx.lineTo(x+torso*.48,y+dh*.12);
+    ctx.lineTo(x+shoulder*.48,y+dh*.145);ctx.lineTo(x+shoulder*.77,y+dh*.12);
+    ctx.lineTo(x+shoulder*.53,y+dh*.035);ctx.lineTo(x+shoulder*.35,y);
+    ctx.lineTo(x+shoulder*.16,y+dh*.028);ctx.quadraticCurveTo(x,y+dh*.053,x-shoulder*.16,y+dh*.028);ctx.closePath();
+    ctx.fillStyle='#9daeba';ctx.fill();ctx.strokeStyle='#8096a4';ctx.lineWidth=1;ctx.stroke();
+    ctx.beginPath();ctx.moveTo(x-torso*.43,bottom-dh*.012);ctx.lineTo(x+torso*.43,bottom-dh*.012);ctx.strokeStyle='#d1dce0';ctx.stroke();
+  }
+  ctx.restore();
+}
+function updateFit(){
+  const min=Number(document.getElementById('chest-min').value),max=Number(document.getElementById('chest-max').value);
+  const result=document.getElementById('fit-result'),size=document.getElementById('garment-size').value;
+  if(!min||!max||max<min){result.textContent='Add the brand\'s chest range to see a basic size comparison.';return}
+  const chest=data.chest;
+  result.textContent=chest<min?`Your chest is ${min-chest} cm below the range entered for ${size}. This size may be roomy.`:
+    chest>max?`Your chest is ${chest-max} cm above the range entered for ${size}. Try another size.`:
+    `Your chest (${chest} cm) falls within the entered ${size} range (${min}–${max} cm). Check the brand's full size chart too.`;
+}
+document.getElementById('product-image').addEventListener('change',e=>{
+  const file=e.target.files[0];if(!file)return;
+  if(productImageUrl)URL.revokeObjectURL(productImageUrl);
+  productImageUrl=URL.createObjectURL(file);
+  const image=new Image();image.onload=()=>{productImage=image;draw()};image.src=productImageUrl;
+});
+['category','garment-size','chest-min','chest-max'].forEach(id=>document.getElementById(id).addEventListener('input',()=>{draw();updateFit()}));
 function renderMeasurementEditor(){
   document.getElementById('summary').innerHTML=specs.map(([key,label,unit])=>
     `<label class="row"><span>${label}</span><input class="measure-edit" data-key="${key}" aria-label="${label}" type="number" min="1" value="${data[key]}"><small class="measure-unit">${unit}</small></label>`
   ).join('');
   document.querySelectorAll('.measure-edit').forEach(input=>input.addEventListener('input',()=>{
     const value=Number(input.value);if(!Number.isFinite(value)||value<=0)return;
-    data[input.dataset.key]=value;document.getElementById(input.dataset.key).value=value;draw();
+    data[input.dataset.key]=value;document.getElementById(input.dataset.key).value=value;draw();updateFit();
   }));
 }
 const initialContinue=document.getElementById('continue').onclick;
@@ -87,8 +134,6 @@ document.getElementById('continue').onclick=()=>{
   initialContinue();
   if(document.getElementById('studio').classList.contains('active'))renderMeasurementEditor();
 };
-document.querySelector('.layout .side:last-child .note').textContent='Visual prototype: measurements now reshape the displayed mannequin image. This is an illustrative 2D adjustment across three views, not a precise 3D body scan or garment fit prediction.';
-document.querySelector('.layout .side:first-child .note').textContent='Change any measurement here to see the mannequin update immediately. Drag left or right to switch views.';
 canvas.addEventListener('pointerdown',e=>{startX=e.clientX;canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointerup',e=>{if(startX!==null){const delta=e.clientX-startX;if(Math.abs(delta)>35)setView(view+(delta<0?1:-1));startX=null}});window.addEventListener('resize',()=>{if(document.getElementById('studio').classList.contains('active')){resize();draw()}});renderFields();
 </script>
 </body></html>
