@@ -52,13 +52,16 @@ function draw(){
   const total=.54*top+.46*bottom;
   const position=y=>y<=.54?y*top/total:(.54*top+(y-.54)*bottom)/total;
   const sw=img.naturalWidth/3,sh=img.naturalHeight;
+  // Each contact-sheet cell includes a small amount of the neighboring view.
+  // Keep the central mannequin area so reshaping cannot pull that view into frame.
+  const crop=sw*.76,sourceX=view*sw+(sw-crop)/2;
   const baseScale=Math.min((r.width*.86)/sw,(r.height*.84)/sh);
-  const dw=sw*baseScale,dh=sh*baseScale*ratio('height',.84,1.18);
+  const dw=crop*baseScale,dh=sh*baseScale*ratio('height',.84,1.18);
   const cx=r.width/2,topY=(r.height-dh)/2;
   for(let sy=0;sy<sh;sy+=2){
     const end=Math.min(sy+2,sh),v=sy/sh,w=dw*widthAt(v);
     const y0=topY+dh*position(v),y1=topY+dh*position(end/sh);
-    ctx.drawImage(img,view*sw,sy,sw,end-sy,cx-w/2,y0,w,Math.max(y1-y0,.6));
+    ctx.drawImage(img,sourceX,sy,crop,end-sy,cx-w/2,y0,w,Math.max(y1-y0,.6));
   }
 }
 function renderMeasurementEditor(){
