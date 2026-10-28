@@ -105,7 +105,7 @@ function resetDemo(){document.querySelectorAll('input').forEach(i=>i.value='');d
 
 const sampleSizes=['M','L','S','M','L'];
 function productLabel(value,index){
-  if(!value)return 'Sample jacket';
+  if(!value)return 'Tailored look';
   try{const url=new URL(value);if(url.hostname)return url.hostname.replace(/^www\./,'')+decodeURIComponent(url.pathname).replace(/\/$/,'')}
   catch(e){}
   return 'Pasted link '+String(index+1).padStart(2,'0');
